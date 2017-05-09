@@ -6,10 +6,12 @@ describe('OrderItem', () => {
   let orderItem;
   let broadcaster;
   let deliveryMethod;
+  let result;
 
   beforeEach(() => {
     broadcaster = {name: "Disney", id: 1};
     deliveryMethod = {name: "Standard", price: 10}
+    result = {broadcasterID: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10}
     orderItem = new OrderItem(broadcaster, deliveryMethod);
   });
   it('should be able to create instances of itself', function(){
@@ -27,8 +29,17 @@ describe('OrderItem', () => {
     expect(orderItem.orderDetails).to.be.a('object');
   });
   describe('#createOrder', () => {
-    it('should be responded to', ()=>{
+    it('should be responded to', () => {
       expect(orderItem).to.respondTo('createOrder');
+    });
+    it('should return an object', () => {
+      expect(orderItem.createOrder()).to.be.an('object');
+    });
+    it('should return with the orderDetails', () => {
+      expect(orderItem.createOrder()).to.eql(result);
+    });
+    it('should alter the orderItem orderDetails', () => {
+      expect(orderItem.orderDetails).to.eql(result);
     });
   });
 });
