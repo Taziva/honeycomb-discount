@@ -27,22 +27,35 @@ describe('Order', ()=>{
 
   it('should initialise with a material string property', ()=>{
     expect(order.material).to.be.a('string');
-    expect(order.material).to.equal(fakeMaterialName)
+    expect(order.material).to.equal(fakeMaterialName);
   })
 
   describe('#addOrderItem', () => {
+    let orderItem;
+
+    beforeEach(function(){
+      orderItem = {broadcaster: "Disney", deliveryMethod: "Express"}
+    });
+
     it('should be responded to', ()=>{
-      expect(order).to.respondTo('addOrderItem')
-    })
+      expect(order).to.respondTo('addOrderItem');
+    });
+    it('should throw an error without an argument', ()=>{
+      expect(()=>{order.addOrderItem()}).to.throw(Error, 'addOrderItem needs a argument');
+    });
+    it('should add the received argument to the order list', () => {
+      order.addOrderItem(orderItem)
+      expect(order.list).to.include(orderItem);
+    });
   });
   describe('#calculateCost', () => {
     it('should be responded to', ()=>{
-      expect(order).to.respondTo('calculateCost')
-    })
+      expect(order).to.respondTo('calculateCost');
+    });
   });
   describe('#showOrder', () => {
     it('should be responded to', ()=>{
-      expect(order).to.respondTo('showOrder')
-    })
+      expect(order).to.respondTo('showOrder');
+    });
   });
 });

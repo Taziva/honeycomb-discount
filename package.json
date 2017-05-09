@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --reporter spec test/testSetup.js test/**/*.test.js",
+    "test": "nyc mocha --reporter spec test/testSetup.js test/**/*.test.js",
     "test:watch": "npm run test -- --watch"
   },
   "author": "",
@@ -16,6 +16,7 @@
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
+    "nyc": "^10.3.2",
     "sinon": "^2.2.0"
   },
   "dependencies": {
