@@ -14,7 +14,7 @@ describe('OrderItem', () => {
     result = {broadcasterID: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10}
     orderItem = new OrderItem(broadcaster, deliveryMethod);
   });
-  it('should be able to create instances of itself', function(){
+  it('should be able to create instances of itself', ()=>{
     expect(orderItem).to.be.an.instanceof(OrderItem);
   });
   it('should initialise with a broadcaster property', () => {

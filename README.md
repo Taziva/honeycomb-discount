@@ -71,7 +71,7 @@ Applies Discounts to Honeycomb video delivery orders
 ### Advertising Material
 |Properties|Methods|
 |----------|-------|
-|serial|check_unique|
+|clock number|check_unique|
 
 ### Delivery Method
 |Properties|Methods|
