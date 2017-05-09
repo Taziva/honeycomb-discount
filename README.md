@@ -53,7 +53,7 @@ Applies Discounts to Honeycomb video delivery orders
 
 |Properties|Methods|
 |----------|-------|
-|Orders|gross_cost|
+|Orders|format_order_list|
 
 
 ### Order Printer
@@ -61,7 +61,7 @@ Applies Discounts to Honeycomb video delivery orders
 |Properties|Methods|
 |----------|-------|
 |OrderList String|print_order|
-||format_order_list|
+|||
 
 ### Broadcaster
 |Properties|Methods|
