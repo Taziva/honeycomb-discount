@@ -21,6 +21,16 @@ Applies Discounts to Honeycomb video delivery orders
 4. As a user, so that I can get more value, I would like to be able to use the discount to lower the price of express delivery if I buy 2 or more materials at express delivery
 5. As a user, so that I can get more value for the price, I would like to be able to use the discount to get 10% off my total if I spend more than £30
 
+## Technology
+
+#### Language
+* Vanilla JavaScript
+* NodeJS
+
+#### Testing
+* Mocha
+* Chai
+* Sinon
 ## Domain models
 
 ### Order
