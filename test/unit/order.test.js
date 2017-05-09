@@ -33,7 +33,7 @@ describe('Order', ()=>{
   describe('#addOrderItem', () => {
     let orderItem;
 
-    beforeEach(function(){
+    beforeEach(() => {
       orderItem = {broadcaster: "Disney", deliveryMethod: "Express"}
     });
 

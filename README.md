@@ -61,12 +61,11 @@ Applies Discounts to Honeycomb video delivery orders
 |Properties|Methods|
 |----------|-------|
 |OrderList String|print_order|
-|||
 
 ### Broadcaster
 |Properties|Methods|
 |----------|-------|
-| name|create_unique_Id|
+| name|make_Id|
 | id||
 
 ### Advertising Material
