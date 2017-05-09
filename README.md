@@ -76,7 +76,7 @@ Applies Discounts to Honeycomb video delivery orders
 ### Delivery Method
 |Properties|Methods|
 |----------|-------|
-|name|check_price|
+|type|check_price|
 |price||
 
 ### Discount Checker
