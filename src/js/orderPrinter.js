@@ -1,5 +1,5 @@
 "use strict";
-import stringTalbe from 'string-table';
+import stringTable from 'string-table';
 
 export default class OrderPrinter {
   constructor() {
@@ -8,7 +8,7 @@ export default class OrderPrinter {
     if(!order){
       throw Error('printOrder requires a valid argument')
     }
-
-    return order;
+    let table = stringTable.create(order)
+    return table;
   }
 }
