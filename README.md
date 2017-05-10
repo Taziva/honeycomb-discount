@@ -23,14 +23,15 @@ Applies Discounts to Honeycomb video delivery orders
 
 ## Technology
 
-#### Language
-* Vanilla JavaScript
+* JavaScript ES6
 * NodeJS
+* Babel
 
 #### Testing
 * Mocha
 * Chai
 * Sinon
+
 ## Domain models
 
 ### Order
@@ -53,7 +54,7 @@ Applies Discounts to Honeycomb video delivery orders
 
 |Properties|Methods|
 |----------|-------|
-|Orders|add_order|
+|OrderItems|add_order|
 
 
 ### Order Printer

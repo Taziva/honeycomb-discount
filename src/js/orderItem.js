@@ -2,16 +2,10 @@
 
 export default class OrderItem {
   constructor(broadcaster, deliveryMethod) {
-    this.broadcaster = broadcaster;
-    this.deliveryMethod = deliveryMethod;
-    this.orderDetails = this.createOrder();
-  }
-  createOrder(){
-    let details = { broadcasterId: this.broadcaster.id,
-      broadcaster: this.broadcaster.name,
-      deliveryMethod: this.deliveryMethod.name,
-      grossPrice: this.deliveryMethod.price
-    }
-    return details;
+    this.broadcasterId = broadcaster.id;
+    this.broadcaster = broadcaster.name;
+    this.deliveryMethod = deliveryMethod.type;
+    this.grossPrice = deliveryMethod.price;
+
   }
 }

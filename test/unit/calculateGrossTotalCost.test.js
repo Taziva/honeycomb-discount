@@ -11,7 +11,7 @@ describe('calculateGrossTotalCost', () => {
     orderList = sinon.stub(new OrderList)
     orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'express', grossPrice: 10};
     orderItem2 = {broadcasterId: 2 ,broadcaster: 'Viacom', deliveryMethod: 'express', grossPrice: 20};
-    orderList.orders.push(orderItem, orderItem2)
+    orderList.orderItems.push(orderItem, orderItem2)
   });
   it('should return a number', () => {
     expect(calculateGrossTotalCost(orderList)).to.be.a('number');

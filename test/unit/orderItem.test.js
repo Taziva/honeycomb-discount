@@ -10,7 +10,7 @@ describe('OrderItem', () => {
 
   beforeEach(() => {
     broadcaster = {name: "Disney", id: 1};
-    deliveryMethod = {name: "Standard", price: 10}
+    deliveryMethod = {type: "Standard", price: 10}
     result = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', grossPrice: 10}
     orderItem = new OrderItem(broadcaster, deliveryMethod);
   });
@@ -18,28 +18,17 @@ describe('OrderItem', () => {
     expect(orderItem).to.be.an.instanceof(OrderItem);
   });
   it('should initialise with a broadcaster property', () => {
-    expect(orderItem.broadcaster).to.be.an('object');
+    expect(orderItem.broadcaster).to.be.an('string');
   });
 
   it('should initialise with a deliveryMethod property', ()=>{
-    expect(orderItem.deliveryMethod).to.be.an('object');
+    expect(orderItem.deliveryMethod).to.be.an('string');
   });
 
-  it('should initialise with a orderDetails property', ()=>{
-    expect(orderItem.orderDetails).to.be.a('object');
+  it('should initialise with a broadcasterId property', ()=>{
+    expect(orderItem.broadcasterId).to.be.a('number');
   });
-  describe('#createOrder', () => {
-    it('should be responded to', () => {
-      expect(orderItem).to.respondTo('createOrder');
-    });
-    it('should return an object', () => {
-      expect(orderItem.createOrder()).to.be.an('object');
-    });
-    it('should return with the orderDetails', () => {
-      expect(orderItem.createOrder()).to.eql(result);
-    });
-    it('should alter the orderItem orderDetails', () => {
-      expect(orderItem.orderDetails).to.eql(result);
-    });
+  it('should initialise with a grossPrice property', ()=>{
+    expect(orderItem.broadcasterId).to.be.a('number');
   });
 });

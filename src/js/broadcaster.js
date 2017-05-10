@@ -8,7 +8,7 @@ export default class Broadcaster {
 }
 
 function makeId() {
-    let i = 0;
+    let i = 1;
     return function() {
         return i++;
     }

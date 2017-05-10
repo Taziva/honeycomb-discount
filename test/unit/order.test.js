@@ -47,11 +47,11 @@ describe('Order', ()=>{
     });
     it('should add the received argument to the order list', () => {
       order.addOrderItem(orderItem)
-      expect(order.list.orders).to.include(orderItem);
+      expect(order.list.orderItems).to.include(orderItem);
     });
   });
   describe('Cost', () => {
-    describe('when orders are added to the order list', () => {
+    describe('when orderItems are added to the order list', () => {
       let orderItem2;
       let orderItem3;
       let orderItem4;
@@ -68,7 +68,7 @@ describe('Order', ()=>{
         expect(order.grossTotalCost).to.equal(30)
       });
 
-      it('should change the order grossTotalCost when more ordersItems are added', () => {
+      it('should change the order grossTotalCost when more orderItems are added', () => {
         order.addOrderItem(orderItem4);
         expect(order.grossTotalCost).to.equal(40)
       });

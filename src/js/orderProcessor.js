@@ -3,7 +3,7 @@ export default class OrderProcessor {
   constructor() {
   }
   processOrder(order){
-    order.list.orders.forEach((orderItem)=>{
+    order.list.orderItems.forEach((orderItem)=>{
       orderItem.netPrice = orderItem.grossPrice;
     })
     order.netTotalCost = order.grossTotalCost;
@@ -19,9 +19,9 @@ export default class OrderProcessor {
 
 const discounts = [
 function multipleExpressDeliveries(order){
-  let deliveryMethods = order.list.orders.map((orderItem) => orderItem.deliveryMethod)
+  let deliveryMethods = order.list.orderItems.map((orderItem) => orderItem.deliveryMethod)
   if(deliveryMethods.filter(value => {return value === 'express'}).length >= 2){
-    order.list.orders.forEach((orderItem)=>{
+    order.list.orderItems.forEach((orderItem)=>{
       if(orderItem.deliveryMethod === 'express'){
         orderItem.netPrice = 15;
       }
@@ -31,7 +31,7 @@ function multipleExpressDeliveries(order){
 },
 function tenPercentDiscount(order){
   let cost;
-  let priceArr = order.list.orders.map((order)=>{return order.netPrice});
+  let priceArr = order.list.orderItems.map((order)=>{return order.netPrice});
   cost = priceArr.reduce((previous, current)=> previous + current);
   if(cost > 30){
     cost -= (cost * 0.1)
@@ -43,7 +43,7 @@ function tenPercentDiscount(order){
 
 function calculateNetTotalCost(order){
   let netTotalCost;
-  let netPriceArr = order.list.orders.map((order)=>{return order.netPrice});
+  let netPriceArr = order.list.orderItems.map((order)=>{return order.netPrice});
   netTotalCost = netPriceArr.reduce((previous, current)=> previous + current);
   return netTotalCost;
 }

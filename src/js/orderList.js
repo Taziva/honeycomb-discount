@@ -2,27 +2,27 @@
 
 export default class OrderList {
   constructor() {
-    this.orders = [];
+    this.orderItems = [];
   }
-  addOrder(order){
-    if(validOrder(order)){
-      this.orders.push(order);
+  addOrder(orderItem){
+    if(validOrder(orderItem)){
+      this.orderItems.push(orderItem);
     }
   }
 }
 
-const validOrder = function(order){
-  if(!order.broadcasterId){
-    throw Error('Order is missing a broadcaster id');
+const validOrder = function(orderItem){
+  if(!orderItem.broadcasterId){
+    throw Error('OrderItem is missing a broadcaster id');
   }
-  if (!order.broadcaster) {
-    throw Error('Order is missing a broadcaster');
+  if (!orderItem.broadcaster) {
+    throw Error('OrderItem is missing a broadcaster');
   }
-  if (!order.deliveryMethod) {
-    throw Error('Order is missing a delivery method');
+  if (!orderItem.deliveryMethod) {
+    throw Error('OrderItem is missing a delivery method');
   }
-  if (!order.grossPrice) {
-    throw Error('Order is missing a price');
+  if (!orderItem.grossPrice) {
+    throw Error('OrderItem is missing a price');
   }
   return true;
 }
