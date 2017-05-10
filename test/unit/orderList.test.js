@@ -15,4 +15,5 @@ describe('OrderList', () => {
   it('should initialise with an orders array property', () => {
     expect(orderList.orders).to.be.an('array');
   });
+  
 });

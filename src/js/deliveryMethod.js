@@ -10,10 +10,8 @@ export default class DeliveryMethod {
     switch (type) {
       case "standard":
         return 10;
-        break;
       case "express":
         return 20;
-        break;
       default:
         throw Error("Unknown Delivery Method")
     }

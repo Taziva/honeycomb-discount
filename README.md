@@ -53,7 +53,7 @@ Applies Discounts to Honeycomb video delivery orders
 
 |Properties|Methods|
 |----------|-------|
-|Orders|format_order_list|
+|Orders|add_order|
 
 
 ### Order Printer
