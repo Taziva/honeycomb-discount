@@ -7,7 +7,7 @@ export default class OrderItem {
     this.orderDetails = this.createOrder();
   }
   createOrder(){
-    let details = { broadcasterID: this.broadcaster.id,
+    let details = { broadcasterId: this.broadcaster.id,
       broadcaster: this.broadcaster.name,
       deliveryMethod: this.deliveryMethod.name,
       price: this.deliveryMethod.price

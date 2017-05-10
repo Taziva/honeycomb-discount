@@ -4,7 +4,7 @@ export default class Order {
   constructor(material, list = [], cost = 0) {
     this.list = list;
     this.cost = cost;
-    this.material = material
+    this.material = material;
   }
   addOrderItem(order){
     if(!order){

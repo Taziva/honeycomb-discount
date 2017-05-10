@@ -23,6 +23,7 @@ describe('Order', ()=>{
 
   it('should initialise with a cost number property', ()=>{
     expect(order.cost).to.be.a('number');
+    expect(order.cost).to.equal(0);
   });
 
   it('should initialise with a material string property', ()=>{
