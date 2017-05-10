@@ -16,7 +16,12 @@ describe('OrderList', () => {
     expect(orderList.orders).to.be.an('array');
   });
   describe('addOrder', () => {
-    let orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10}
+    let orderItem;
+
+    beforeEach(()=>{
+      orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10};
+    });
+
     it('should be responded to', () => {
       expect(orderList).to.respondTo('addOrder');
     });

@@ -17,8 +17,9 @@ describe('Order', ()=>{
     expect(order).to.be.an.instanceof(Order);
   });
 
-  it('should initialise with a list array property', () => {
-    expect(order.list).to.be.an('array');
+  it('should initialise with a orderlist object property', () => {
+    expect(order).to.have.property('list')
+    expect(order.list).to.be.an('object');
   });
 
   it('should initialise with a cost number property', ()=>{
@@ -35,7 +36,7 @@ describe('Order', ()=>{
     let orderItem;
 
     beforeEach(() => {
-      orderItem = {broadcaster: "Disney", deliveryMethod: "Express"}
+      orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10};
     });
 
     it('should be responded to', ()=>{
@@ -46,12 +47,31 @@ describe('Order', ()=>{
     });
     it('should add the received argument to the order list', () => {
       order.addOrderItem(orderItem)
-      expect(order.list).to.include(orderItem);
+      expect(order.list.orders).to.include(orderItem);
     });
   });
-  describe('#calculateCost', () => {
-    it('should be responded to', ()=>{
-      expect(order).to.respondTo('calculateCost');
+  describe('Cost', () => {
+    describe('when orders are added to the order list', () => {
+      let orderItem2;
+      let orderItem3;
+      let orderItem4;
+
+      beforeEach(() => {
+        orderItem2 = {broadcasterId: 2, broadcaster: 'Viacom', deliveryMethod: 'Standard', price: 10};
+        orderItem3 = {broadcasterId: 3, broadcaster: 'Discovery', deliveryMethod: 'Express', price: 20};
+        orderItem4 = {broadcasterId: 4, broadcaster: 'ITV', deliveryMethod: 'Express', price: 20};
+        order.addOrderItem(orderItem2);
+        order.addOrderItem(orderItem3);
+      });
+
+      it('should change the order cost', () => {
+        expect(order.cost).to.equal(30)
+      });
+
+      it('should change the order cost when more ordersItems are added', () => {
+        order.addOrderItem(orderItem4);
+        expect(order.cost).to.equal(50)
+      });
     });
   });
   describe('#showOrder', () => {

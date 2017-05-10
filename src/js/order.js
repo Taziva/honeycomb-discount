@@ -1,21 +1,27 @@
 "use strict";
+import OrderList from './orderList';
 
 export default class Order {
-  constructor(material, list = [], cost = 0) {
-    this.list = list;
-    this.cost = cost;
+  constructor(material) {
+    this.list = new OrderList;
+    this.cost = 0;
     this.material = material;
   }
   addOrderItem(order){
     if(!order){
       throw Error('addOrderItem needs a argument')
     }
-    this.list.push(order)
-  }
-  calculateCost(){
-
+    this.list.addOrder(order)
+    this.cost = calculateCost(this.list)
   }
   showOrder(){
 
   }
+}
+
+const calculateCost = function(orderList){
+  let cost;
+  let priceArr = orderList.orders.map((order)=>{return order.price});
+  cost = priceArr.reduce((previous, current)=> previous + current);
+  return cost;
 }
