@@ -4,7 +4,7 @@ import OrderList from './orderList';
 export default class Order {
   constructor(material) {
     this.list = new OrderList;
-    this.cost = 0;
+    this.grossTotalCost = 0;
     this.material = material;
   }
   addOrderItem(order){
@@ -12,16 +12,13 @@ export default class Order {
       throw Error('addOrderItem needs a argument')
     }
     this.list.addOrder(order)
-    this.cost = calculateCost(this.list)
-  }
-  showOrder(){
-
+    this.grossTotalCost = calculateGrossTotalCost(this.list)
   }
 }
 
-const calculateCost = function(orderList){
+const calculateGrossTotalCost = function(orderList){
   let cost;
-  let priceArr = orderList.orders.map((order)=>{return order.price});
+  let priceArr = orderList.orders.map((order)=>{return order.grossPrice});
   cost = priceArr.reduce((previous, current)=> previous + current);
   return cost;
 }

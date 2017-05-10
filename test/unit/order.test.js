@@ -22,9 +22,9 @@ describe('Order', ()=>{
     expect(order.list).to.be.an('object');
   });
 
-  it('should initialise with a cost number property', ()=>{
-    expect(order.cost).to.be.a('number');
-    expect(order.cost).to.equal(0);
+  it('should initialise with a grossTotalCost number property', ()=>{
+    expect(order.grossTotalCost).to.be.a('number');
+    expect(order.grossTotalCost).to.equal(0);
   });
 
   it('should initialise with a material string property', ()=>{
@@ -36,7 +36,7 @@ describe('Order', ()=>{
     let orderItem;
 
     beforeEach(() => {
-      orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10};
+      orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', grossPrice: 10};
     });
 
     it('should be responded to', ()=>{
@@ -57,26 +57,21 @@ describe('Order', ()=>{
       let orderItem4;
 
       beforeEach(() => {
-        orderItem2 = {broadcasterId: 2, broadcaster: 'Viacom', deliveryMethod: 'Standard', price: 10};
-        orderItem3 = {broadcasterId: 3, broadcaster: 'Discovery', deliveryMethod: 'Express', price: 20};
-        orderItem4 = {broadcasterId: 4, broadcaster: 'ITV', deliveryMethod: 'Express', price: 20};
+        orderItem2 = {broadcasterId: 2, broadcaster: 'Viacom', deliveryMethod: 'Standard', grossPrice: 10};
+        orderItem3 = {broadcasterId: 3, broadcaster: 'Discovery', deliveryMethod: 'Express', grossPrice: 20};
+        orderItem4 = {broadcasterId: 4, broadcaster: 'ITV', deliveryMethod: 'Standard', grossPrice: 10};
         order.addOrderItem(orderItem2);
         order.addOrderItem(orderItem3);
       });
 
-      it('should change the order cost', () => {
-        expect(order.cost).to.equal(30)
+      it('should change the order grossTotalCost', () => {
+        expect(order.grossTotalCost).to.equal(30)
       });
 
-      it('should change the order cost when more ordersItems are added', () => {
+      it('should change the order grossTotalCost when more ordersItems are added', () => {
         order.addOrderItem(orderItem4);
-        expect(order.cost).to.equal(50)
+        expect(order.grossTotalCost).to.equal(40)
       });
-    });
-  });
-  describe('#showOrder', () => {
-    it('should be responded to', ()=>{
-      expect(order).to.respondTo('showOrder');
     });
   });
 });

@@ -21,7 +21,7 @@ const validOrder = function(order){
   if (!order.deliveryMethod) {
     throw Error('Order is missing a delivery method');
   }
-  if (!order.price) {
+  if (!order.grossPrice) {
     throw Error('Order is missing a price');
   }
   return true;

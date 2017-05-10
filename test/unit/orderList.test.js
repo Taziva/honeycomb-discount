@@ -19,7 +19,7 @@ describe('OrderList', () => {
     let orderItem;
 
     beforeEach(()=>{
-      orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10};
+      orderItem = {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'Standard', grossPrice: 10};
     });
 
     it('should be responded to', () => {
@@ -36,9 +36,9 @@ describe('OrderList', () => {
       let missingPrice;
 
       beforeEach(()=>{
-        missingId = {broadcaster: 'Disney', deliveryMethod: 'Standard', price: 10};
-        missingBroadcaster = {broadcasterId: 1, deliveryMethod: 'Standard', price: 10};
-        missingDeliveryMethod = {broadcasterId: 1 ,broadcaster: 'Disney', price: 10};
+        missingId = {broadcaster: 'Disney', deliveryMethod: 'Standard', grossPrice: 10};
+        missingBroadcaster = {broadcasterId: 1, deliveryMethod: 'Standard', grossPrice: 10};
+        missingDeliveryMethod = {broadcasterId: 1 ,broadcaster: 'Disney', grossPrice: 10};
         missingPrice = {broadcasterId: 1, broadcaster: 'Disney', deliveryMethod: 'Standard'};
       });
 

@@ -39,7 +39,7 @@ Applies Discounts to Honeycomb video delivery orders
 |----------|-------|
 |OrderList|add_order_item|
 |Cost|calculate_cost|
-|Material|show_order|
+|Material||
 
 ### OrderItem
 
@@ -79,10 +79,10 @@ Applies Discounts to Honeycomb video delivery orders
 |type|check_price|
 |price||
 
-### Discount Checker
+### Order Processor
 |Properties|Methods|
 |----------|-------|
-|Order|check_discounts|
+||process_order|
 
 ## Processes
 
@@ -90,10 +90,10 @@ Applies Discounts to Honeycomb video delivery orders
 Order -- create_order --> OrderList -- add_order_item --> OrderItem.create_order;
 
 ### Calculate Cost
-Order -- calculate_cost --> OrderList -- gross_cost --> Discount Checker -- check_discounts --> Order.price
+OrderProcessor -- process_order(Order) --> OrderNetCostCalculator --> Order.netCost
 
 ### Print Order
-Order Printer -- print_order --> Order
+Order Printer -- print_order --> processedOrder
 
 ## Acceptance Criteria
 * send WNP/SWCL001/010 to Disney, Discovery, Viacom via Standard Delivery and Horse and Country via Express Delivery based on the defined Discounts the total should be $45.00

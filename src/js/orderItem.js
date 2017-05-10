@@ -10,7 +10,7 @@ export default class OrderItem {
     let details = { broadcasterId: this.broadcaster.id,
       broadcaster: this.broadcaster.name,
       deliveryMethod: this.deliveryMethod.name,
-      price: this.deliveryMethod.price
+      grossPrice: this.deliveryMethod.price
     }
     return details;
   }
