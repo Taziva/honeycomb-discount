@@ -6,6 +6,7 @@
   "scripts": {
     "start": "babel-node src/index.js",
     "test": "nyc mocha --reporter spec test/testSetup.js test/**/*.test.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:watch": "npm run test -- --watch"
   },
   "author": "",
@@ -16,6 +17,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
     "mocha": "^3.3.0",
     "nyc": "^10.3.2",
     "sinon": "^2.2.0"
