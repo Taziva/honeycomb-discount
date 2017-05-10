@@ -4,7 +4,7 @@ Applies Discounts to Honeycomb video delivery orders
 ## Manual
 On Terminal
 1. Clone the repo
-2. Move into the repo directory
+2. Move into the directory
 3. Run npm install
 4. Run npm start
 
