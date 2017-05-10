@@ -1,6 +1,13 @@
 # Honeycomb Discounts
 Applies Discounts to Honeycomb video delivery orders
 
+## Manual
+On Terminal
+1. Clone the repo
+2. Move into the repo directory
+3. Run npm install
+4. Run npm start
+
 ## Specification
 * Creates an order composed out of:
   * Advertising Material
