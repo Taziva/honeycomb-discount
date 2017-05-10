@@ -1,6 +1,13 @@
 # Honeycomb Discounts
 Applies Discounts to Honeycomb video delivery orders
 
+## Manual
+On Terminal
+1. Clone the repo
+2. Move into the repo directory
+3. Run npm install
+4. Run npm start
+
 ## Specification
 * Creates an order composed out of:
   * Advertising Material
@@ -21,6 +28,17 @@ Applies Discounts to Honeycomb video delivery orders
 4. As a user, so that I can get more value, I would like to be able to use the discount to lower the price of express delivery if I buy 2 or more materials at express delivery
 5. As a user, so that I can get more value for the price, I would like to be able to use the discount to get 10% off my total if I spend more than £30
 
+## Technology
+
+* JavaScript ES6
+* NodeJS
+* Babel
+
+#### Testing
+* Mocha
+* Chai
+* Sinon
+
 ## Domain models
 
 ### Order
@@ -29,7 +47,7 @@ Applies Discounts to Honeycomb video delivery orders
 |----------|-------|
 |OrderList|add_order_item|
 |Cost|calculate_cost|
-|Material|show_order|
+|Material||
 
 ### OrderItem
 
@@ -43,7 +61,7 @@ Applies Discounts to Honeycomb video delivery orders
 
 |Properties|Methods|
 |----------|-------|
-|Orders|gross_cost|
+|OrderItems|add_order|
 
 
 ### Order Printer
@@ -51,29 +69,28 @@ Applies Discounts to Honeycomb video delivery orders
 |Properties|Methods|
 |----------|-------|
 |OrderList String|print_order|
-||format_order_list|
 
 ### Broadcaster
 |Properties|Methods|
 |----------|-------|
-| name|create_unique_Id|
+| name|make_Id|
 | id||
 
 ### Advertising Material
 |Properties|Methods|
 |----------|-------|
-|serial|check_unique|
+|clock number|check_unique|
 
 ### Delivery Method
 |Properties|Methods|
 |----------|-------|
-|name|check_price|
+|type|check_price|
 |price||
 
-### Discount Checker
+### Order Processor
 |Properties|Methods|
 |----------|-------|
-|Order|check_discounts|
+||process_order|
 
 ## Processes
 
@@ -81,10 +98,10 @@ Applies Discounts to Honeycomb video delivery orders
 Order -- create_order --> OrderList -- add_order_item --> OrderItem.create_order;
 
 ### Calculate Cost
-Order -- calculate_cost --> OrderList -- gross_cost --> Discount Checker -- check_discounts --> Order.price
+OrderProcessor -- process_order(Order) --> OrderNetCostCalculator --> Order.netCost
 
 ### Print Order
-Order Printer -- print_order --> Order
+Order Printer -- print_order --> processedOrder
 
 ## Acceptance Criteria
 * send WNP/SWCL001/010 to Disney, Discovery, Viacom via Standard Delivery and Horse and Country via Express Delivery based on the defined Discounts the total should be $45.00
