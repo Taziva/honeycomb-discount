@@ -6,6 +6,5 @@ export default class OrderItem {
     this.broadcaster = broadcaster.name;
     this.deliveryMethod = deliveryMethod.type;
     this.grossPrice = deliveryMethod.price;
-
   }
 }

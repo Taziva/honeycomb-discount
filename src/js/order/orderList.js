@@ -5,6 +5,7 @@ export default class OrderList {
     this.orderItems = [];
   }
   addOrder(orderItem){
+    // Checks the orderItem has the correct information and then adds it to the array list
     if(!orderItem.broadcasterId){
       throw Error('OrderItem is missing a broadcaster id');
     }

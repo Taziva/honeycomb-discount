@@ -8,11 +8,12 @@ export default class Order {
     this.grossTotalCost = 0;
     this.material = material;
   }
-  addOrderItem(order){
-    if(!order){
+  addOrderItem(orderItem){
+    // Adds an orderItem to this order's orderList
+    if(!orderItem){
       throw Error('addOrderItem needs a argument')
     }
-    this.list.addOrder(order)
+    this.list.addOrder(orderItem)
     this.grossTotalCost = calculateGrossTotalCost(this.list)
   }
 }
