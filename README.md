@@ -33,6 +33,7 @@ On Terminal
 * JavaScript ES6
 * NodeJS
 * Babel
+* string-table
 
 #### Testing
 * Mocha
