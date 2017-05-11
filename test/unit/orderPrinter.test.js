@@ -14,7 +14,9 @@ describe('OrderPrinter', () => {
                           {broadcasterId: 1 ,broadcaster: 'Disney', deliveryMethod: 'standard', grossPrice: 10, netPrice: 10},
                           {broadcasterId: 2 ,broadcaster: 'Viacom', deliveryMethod: 'express', grossPrice: 20, netPrice: 20}
                         ]
-                      },netTotalCost: 30
+                      },
+                      grossTotalCost: 30,
+                      netTotalCost: 30,
                     };
   });
 
@@ -38,8 +40,11 @@ describe('OrderPrinter', () => {
     it('should return a string with a table', () => {
       expect(orderPrinter.printOrder(processedOrder)).to.contain("| broadcasterId | broadcaster | deliveryMethod | grossPrice | netPrice |\n------------------------------------------------------------------------\n|             1 | Disney      | standard       |         10 |       10 |\n|             2 | Viacom      | express        |         20 |       20 |")
     });
-    it('should return a string with total cost', () => {
-      expect(orderPrinter.printOrder(processedOrder)).to.contain("Order Total: $30.00")
+    it('should return a string with the gross total cost', () => {
+      expect(orderPrinter.printOrder(processedOrder)).to.contain("Order Gross Total: $30.00")
+    });
+    it('should return a string with net total cost', () => {
+      expect(orderPrinter.printOrder(processedOrder)).to.contain("Order Net Total: $30.00")
     });
   });
 });

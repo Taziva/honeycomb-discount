@@ -13,6 +13,8 @@ describe('AdvertisingMaterial', () =>{
   });
 
   beforeEach(()=>{
+    const pattern = /\[A-Z]{3}\/[A-Z]{4}\d{3}\/\d{3}/;
+    console.log(pattern.test(clockNumberStart+clockNumberEnd))
     advertisingMaterial = new AdvertisingMaterial(clockNumberStart+clockNumberEnd);
     clockNumberEnd++
   });
@@ -27,5 +29,7 @@ describe('AdvertisingMaterial', () =>{
     let advertisingMaterial2;
     expect(()=>{advertisingMaterial2 = new AdvertisingMaterial('WNP/JMEL001/010')}).to.throw(Error,'Please supply a unique Clock Number')
   })
-
+  it('should have a clockNumber that matches the pattern', () => {
+    expect(()=>{new AdvertisingMaterial('Disney')}).to.throw(Error, 'Invalid clockNumber')
+  });
 });
