@@ -1,3 +1,5 @@
+"use strict";
+
 export const calculateGrossTotalCost = function(orderList){
   // Calculates the price of the order before discounts are applied
   let grossTotalCost;

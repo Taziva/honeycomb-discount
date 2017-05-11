@@ -1,4 +1,5 @@
 "use strict";
+
 import stringTable from 'string-table';
 
 export default class OrderPrinter {

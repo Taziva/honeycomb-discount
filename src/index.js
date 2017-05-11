@@ -1,3 +1,5 @@
+"use strict";
+
 import AdvertisingMaterial from './js/advertisingMaterial/advertisingMaterial';
 import Broadcaster from './js/broadcaster/broadcaster';
 import DeliveryMethod from './js/deliveryMethod/deliveryMethod';

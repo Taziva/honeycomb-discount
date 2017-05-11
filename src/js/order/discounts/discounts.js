@@ -1,5 +1,5 @@
 "use strict";
-// Discounts applied to each order
+// Discounts here are iterated through when the order is processed
 // In the order of the way you want the discounts to be applied
 
 export function multipleExpressDeliveries(order){
