@@ -45,63 +45,64 @@ On Terminal
 
 |Properties|Methods|
 |----------|-------|
-|OrderList|add_order_item|
-|Cost|calculate_cost|
+|OrderList|addOrderItem|
+|Cost|calculateGrossTotalCost|
 |Material||
 
 ### OrderItem
 
 |Properties| Methods|
 |----------|--------|
-|Broadcaster||
-|Delivery_Method||
-|order details|create_order|
+|broadcasterId||
+|broadcaster||
+|deliveryMethod||
+|grossPrice||
 
 ### Order List
 
 |Properties|Methods|
 |----------|-------|
-|OrderItems|add_order|
+|orderItems|addOrder|
 
 
 ### Order Printer
 
 |Properties|Methods|
 |----------|-------|
-|OrderList String|print_order|
+|Order|printOrder|
 
 ### Broadcaster
 |Properties|Methods|
 |----------|-------|
-| name|make_Id|
+| name|makeId|
 | id||
 
 ### Advertising Material
 |Properties|Methods|
 |----------|-------|
-|clock number|check_unique|
+|clockNumber|checkUnique|
 
 ### Delivery Method
 |Properties|Methods|
 |----------|-------|
-|type|check_price|
+|type|checkPrice|
 |price||
 
 ### Order Processor
 |Properties|Methods|
 |----------|-------|
-||process_order|
+||processOrder|
 
 ## Processes
 
 ### Create Order
-Order -- create_order --> OrderList -- add_order_item --> OrderItem.create_order;
+Order -- add_order_item( new OrderItem) --> OrderList -- add_order(OrderItem) --> OrderList.orderItems
 
 ### Calculate Cost
-OrderProcessor -- process_order(Order) --> OrderNetCostCalculator --> Order.netCost
+OrderProcessor -- process_order(Order) --> processedOrder
 
 ### Print Order
-Order Printer -- print_order --> processedOrder
+Order Printer -- print_order(processedOrder) --> Stdout
 
 ## Acceptance Criteria
 * send WNP/SWCL001/010 to Disney, Discovery, Viacom via Standard Delivery and Horse and Country via Express Delivery based on the defined Discounts the total should be $45.00
