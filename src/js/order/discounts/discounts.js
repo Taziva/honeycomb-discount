@@ -1,5 +1,8 @@
-export const discounts = [
-function multipleExpressDeliveries(order){
+"use strict";
+// Discounts applied to each order
+// In the order of the way you want the discounts to be applied
+
+export function multipleExpressDeliveries(order){
   // If there are 2 or more express deliveries in the order the cost of each is reduced to $15
   let deliveryMethods = order.list.orderItems.map((orderItem) => orderItem.deliveryMethod)
   if(deliveryMethods.filter(value => {return value === 'express'}).length >= 2){
@@ -10,8 +13,9 @@ function multipleExpressDeliveries(order){
     })
   }
   return order;
-},
-function tenPercentDiscount(order){
+}
+
+export function tenPercentDiscount(order){
   // If the total net price after discounts are applied is over $30 take 10% off the total net cost
   let cost;
   let priceArr = order.list.orderItems.map((order)=>{return order.netPrice});
@@ -22,4 +26,3 @@ function tenPercentDiscount(order){
   order.netTotalCost = cost;
   return order;
 }
-];

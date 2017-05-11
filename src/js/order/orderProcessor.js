@@ -1,5 +1,5 @@
 "use strict";
-import {discounts} from './discounts/discounts';
+import * as discounts from './discounts/discounts';
 
 export default class OrderProcessor {
   constructor() {
@@ -10,7 +10,7 @@ export default class OrderProcessor {
       orderItem.netPrice = orderItem.grossPrice;
     })
     order.netTotalCost = order.grossTotalCost;
-    discounts.forEach((discount)=>{
+    Object.values(discounts).forEach((discount)=>{
       order = discount(order);
       if(order.netTotalCost >= calculateNetTotalCost(order)){
         order.netTotalCost = calculateNetTotalCost(order);
