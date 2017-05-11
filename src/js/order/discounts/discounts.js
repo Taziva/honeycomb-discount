@@ -11,6 +11,7 @@ export function multipleExpressDeliveries(order){
         orderItem.netPrice = 15;
       }
     })
+    order.appliedDiscounts.push('Send 2 or more materials via express delivery and the price for express delivery drops to $15');
   }
   return order;
 }
@@ -22,6 +23,7 @@ export function tenPercentDiscount(order){
   cost = priceArr.reduce((previous, current)=> previous + current);
   if(cost > 30){
     cost -= (cost * 0.1)
+    order.appliedDiscounts.push('Spend over $30 to get 10% off');
   }
   order.netTotalCost = cost;
   return order;

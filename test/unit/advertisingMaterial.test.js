@@ -13,8 +13,6 @@ describe('AdvertisingMaterial', () =>{
   });
 
   beforeEach(()=>{
-    const pattern = /\[A-Z]{3}\/[A-Z]{4}\d{3}\/\d{3}/;
-    console.log(pattern.test(clockNumberStart+clockNumberEnd))
     advertisingMaterial = new AdvertisingMaterial(clockNumberStart+clockNumberEnd);
     clockNumberEnd++
   });

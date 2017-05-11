@@ -9,6 +9,7 @@ export default class OrderProcessor {
     order.list.orderItems.forEach((orderItem)=>{
       orderItem.netPrice = orderItem.grossPrice;
     })
+    order.appliedDiscounts = [];
     order.netTotalCost = order.grossTotalCost;
     for (const key in discounts){
       order = discounts[key](order);
