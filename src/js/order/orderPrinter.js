@@ -5,6 +5,7 @@ export default class OrderPrinter {
   constructor() {
   }
   printOrder(processedOrder){
+    // Returns a string of the order with a title a table with the order details and the Net Order Total
     if(!processedOrder){
       throw Error('printOrder requires a valid argument')
     }

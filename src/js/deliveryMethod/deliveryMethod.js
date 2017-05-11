@@ -6,6 +6,7 @@ export default class DeliveryMethod {
     this.price = this.checkPrice(type);
   }
   checkPrice(type){
+    // Checks if the delivery method is a accepted form of delivery that honeycomb offers
     switch (type) {
       case "standard":
         return 10;
