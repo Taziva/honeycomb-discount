@@ -9,13 +9,20 @@ export default class OrderPrinter {
     if(!processedOrder){
       throw Error('printOrder requires a valid argument')
     }
-    let orderString = '';
-    let materialNameString = `Order for ${processedOrder.material.clockNumber}:\n`;
-    let tableString = stringTable.create(processedOrder.list.orderItems)
-    let orderTotalString = `\nOrder Total: $${processedOrder.netTotalCost.toFixed(2)}\n`
-    orderString += materialNameString;
-    orderString += tableString;
-    orderString += orderTotalString;
-    return orderString;
+    const orderReceipt = formatOrderString(processedOrder)
+    return orderReceipt;
   }
+}
+
+function formatOrderString(processedOrder) {
+  let orderString = '';
+  const materialNameString = `Order for ${processedOrder.material.clockNumber}:\n`;
+  const tableString = stringTable.create(processedOrder.list.orderItems)
+  const orderGrossTotalString = `\nOrder Gross Total: $${processedOrder.grossTotalCost.toFixed(2)}`
+  const orderNetTotalString = `\nOrder Net Total: $${processedOrder.netTotalCost.toFixed(2)}\n`
+  orderString += materialNameString;
+  orderString += tableString;
+  orderString += orderGrossTotalString;
+  orderString += orderNetTotalString;
+  return orderString;
 }
