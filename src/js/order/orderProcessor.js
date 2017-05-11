@@ -10,12 +10,12 @@ export default class OrderProcessor {
       orderItem.netPrice = orderItem.grossPrice;
     })
     order.netTotalCost = order.grossTotalCost;
-    Object.values(discounts).forEach((discount)=>{
-      order = discount(order);
+    for (const key in discounts){
+      order = discounts[key](order);
       if(order.netTotalCost >= calculateNetTotalCost(order)){
         order.netTotalCost = calculateNetTotalCost(order);
       };
-    });
+    }
     return order;
   }
 }
