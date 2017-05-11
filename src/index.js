@@ -1,11 +1,11 @@
-import AdvertisingMaterial from './js/advertisingMaterial';
-import Broadcaster from './js/broadcaster';
-import DeliveryMethod from './js/deliveryMethod';
-import Order from './js/order';
-import OrderItem from './js/orderItem';
-import OrderList from './js/orderList';
-import OrderPrinter from './js/orderPrinter';
-import OrderProcessor from './js/orderProcessor';
+import AdvertisingMaterial from './js/advertisingMaterial/advertisingMaterial';
+import Broadcaster from './js/broadcaster/broadcaster';
+import DeliveryMethod from './js/deliveryMethod/deliveryMethod';
+import Order from './js/order/order';
+import OrderItem from './js/order/orderItem';
+import OrderList from './js/order/orderList';
+import OrderPrinter from './js/order/orderPrinter';
+import OrderProcessor from './js/order/orderProcessor';
 
 const standardDelivery = new DeliveryMethod('standard');
 const expressDelivery = new DeliveryMethod('express');
@@ -39,7 +39,5 @@ orderTwo.addOrderItem(new OrderItem(Viacom, expressDelivery));
 let processedOrderOne = orderProcessor.processOrder(order);
 let processedOrderTwo = orderProcessor.processOrder(orderTwo);
 
-console.log(processedOrderOne.list.orderItems[0].broadcaster);
-
-orderPrinter.printOrder(processedOrderOne);
-orderPrinter.printOrder(processedOrderTwo);
+console.log(orderPrinter.printOrder(processedOrderOne));
+console.log(orderPrinter.printOrder(processedOrderTwo));

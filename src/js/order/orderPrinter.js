@@ -11,7 +11,7 @@ export default class OrderPrinter {
     let orderString = '';
     let materialNameString = `Order for ${processedOrder.material.clockNumber}:\n`;
     let tableString = stringTable.create(processedOrder.list.orderItems)
-    let orderTotalString = `\nOrder Total: $${processedOrder.netTotalCost}`
+    let orderTotalString = `\nOrder Total: $${processedOrder.netTotalCost.toFixed(2)}`
     orderString += materialNameString;
     orderString += tableString;
     orderString += orderTotalString;

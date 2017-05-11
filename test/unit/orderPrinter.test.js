@@ -1,4 +1,4 @@
-import OrderPrinter from '../../src/js/orderPrinter';
+import OrderPrinter from '../../src/js/order/orderPrinter';
 import {expect} from 'chai';
 import sinon from 'sinon';
 
@@ -39,7 +39,7 @@ describe('OrderPrinter', () => {
       expect(orderPrinter.printOrder(processedOrder)).to.contain("| broadcasterId | broadcaster | deliveryMethod | grossPrice | netPrice |\n------------------------------------------------------------------------\n|             1 | Disney      | standard       |         10 |       10 |\n|             2 | Viacom      | express        |         20 |       20 |")
     });
     it('should return a string with total cost', () => {
-      expect(orderPrinter.printOrder(processedOrder)).to.contain("Order Total: $30")
+      expect(orderPrinter.printOrder(processedOrder)).to.contain("Order Total: $30.00")
     });
   });
 });

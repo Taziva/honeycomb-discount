@@ -23,7 +23,6 @@
     "sinon": "^2.2.0"
   },
   "dependencies": {
-    "console.table": "^0.8.0",
     "npm-run-all": "^4.0.2",
     "string-table": "^0.1.5"
   }

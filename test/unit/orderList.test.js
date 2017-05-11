@@ -1,4 +1,4 @@
-import OrderList from '../../src/js/orderList';
+import OrderList from '../../src/js/order/orderList';
 import {expect} from 'chai';
 import sinon from 'sinon';
 

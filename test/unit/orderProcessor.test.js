@@ -1,5 +1,5 @@
-import OrderProcessor from '../../src/js/orderProcessor';
-import Order from '../../src/js/order';
+import OrderProcessor from '../../src/js/order/orderProcessor';
+import Order from '../../src/js/order/order';
 import {expect} from 'chai';
 import sinon from 'sinon';
 

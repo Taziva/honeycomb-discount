@@ -1,5 +1,5 @@
-import {calculateGrossTotalCost} from '../../src/js/calculateGrossTotalCost';
-import OrderList from '../../src/js/orderList';
+import {calculateGrossTotalCost} from '../../src/js/order/calculateGrossTotalCost';
+import OrderList from '../../src/js/order/orderList';
 import {expect} from 'chai';
 import sinon from 'sinon';
 

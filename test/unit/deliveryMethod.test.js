@@ -1,4 +1,4 @@
-import DeliveryMethod from '../../src/js/deliveryMethod';
+import DeliveryMethod from '../../src/js/deliveryMethod/deliveryMethod';
 import {expect} from 'chai';
 import sinon from 'sinon';
 

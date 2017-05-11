@@ -1,4 +1,4 @@
-import AdvertisingMaterial from '../../src/js/advertisingMaterial';
+import AdvertisingMaterial from '../../src/js/advertisingMaterial/advertisingMaterial';
 import {expect} from 'chai';
 import sinon from 'sinon';
 
@@ -11,7 +11,7 @@ describe('AdvertisingMaterial', () =>{
     clockNumberStart = "WNP/JMEL001/0"
     clockNumberEnd = 10
   });
-  
+
   beforeEach(()=>{
     advertisingMaterial = new AdvertisingMaterial(clockNumberStart+clockNumberEnd);
     clockNumberEnd++
