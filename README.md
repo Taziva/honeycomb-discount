@@ -1,5 +1,6 @@
 # Honeycomb Discounts
 Applies Discounts to Honeycomb video delivery orders
+[![Build Status](https://travis-ci.org/Taziva/honeycomb-discount.svg?branch=master)](https://travis-ci.org/Taziva/honeycomb-discount)
 
 ## Manual
 On Terminal
