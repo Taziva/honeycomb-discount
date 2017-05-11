@@ -1,4 +1,4 @@
-# Honeycomb Discounts [![Build Status](https://travis-ci.org/Taziva/honeycomb-discount.svg?branch=master)](https://travis-ci.org/Taziva/honeycomb-discount) [![CoverageStatus](https://coveralls.io/repos/github/Taziva/honeycomb-discount/badge.svg?branch=setup)](https://coveralls.io/github/Taziva/honeycomb-discount?branch=setup)
+# Honeycomb Discounts [![Build Status](https://travis-ci.org/Taziva/honeycomb-discount.svg?branch=master)](https://travis-ci.org/Taziva/honeycomb-discount) [![Coverage Status](https://coveralls.io/repos/github/Taziva/honeycomb-discount/badge.svg?branch=master)](https://coveralls.io/github/Taziva/honeycomb-discount?branch=master)
 Applies Discounts to Honeycomb video delivery orders
 
 ## Manual
