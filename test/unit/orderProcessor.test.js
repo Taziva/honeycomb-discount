@@ -34,6 +34,11 @@ describe('OrderProcessor', () => {
       expect(processedOrder).to.have.property('netTotalCost');
       expect(processedOrder.netTotalCost).to.equal(10);
     });
+    it('should return a modified version of arguments passed with an appliedDiscounts property', () => {
+      let processedOrder = orderProcessor.processOrder(order);
+      expect(processedOrder).to.have.property('appliedDiscounts');
+      expect(processedOrder.appliedDiscounts).to.be.an('array');
+    });
     describe('when the following discount conditions are met', () => {
       describe('- if 2 or more materials are sent via express delivery', () => {
         describe('#multipleExpressDeliveries', () => {
@@ -45,6 +50,7 @@ describe('OrderProcessor', () => {
           it('should not change the netPrice if theres only 1 express delivery', () => {
             let processedOrder = orderProcessor.processOrder(order);
             expect(processedOrder.list.orderItems[0].netPrice).to.equal(10);
+            expect(processedOrder.appliedDiscounts).to.not.contain('Send 2 or more materials via express delivery and the price for express delivery drops to $15');
           })
           it('should not change the netPrice of standard delivery', ()=>{
             let processedOrder = orderProcessor.processOrder(order);
@@ -64,7 +70,14 @@ describe('OrderProcessor', () => {
             order.list.orderItems.push(orderItem3);
             processedOrder = orderProcessor.processOrder(order);
             expect(processedOrder.netTotalCost).to.equal(36);
-          })
+          });
+          it('should add string \'Send 2 or more materials via express delivery and the price for express delivery drops to $15\' to appliedDiscounts of the order', () => {
+            let orderItem3 = {broadcasterId: 3 ,broadcaster: 'Disney', deliveryMethod: 'express', grossPrice: 20};
+            order.list.orderItems.push(orderItem3);
+            let processedOrder = orderProcessor.processOrder(order);
+            expect(processedOrder.appliedDiscounts).to.contain('Send 2 or more materials via express delivery and the price for express delivery drops to $15');
+            expect(processedOrder.appliedDiscounts.filter(value => {return value === 'Send 2 or more materials via express delivery and the price for express delivery drops to $15'}).length).to.equal(1)
+          });
         });
       });
       describe('- if the netCost is over $30', () => {
@@ -79,11 +92,18 @@ describe('OrderProcessor', () => {
           it('should not take off 10% if the netTotalCost is $30 or under', () => {
             let processedOrder = orderProcessor.processOrder(order);
             expect(processedOrder.netTotalCost).to.equal(30);
+            expect(processedOrder.appliedDiscounts).to.not.contain('Spend over $30 to get 10% off');
           });
           it('should take 10% off the netTotalCost', () => {
             order.list.orderItems.push(orderItem5);
             let processedOrder = orderProcessor.processOrder(order);
             expect(processedOrder.netTotalCost).to.equal(36);
+          });
+          it('should add string \'Spend over $30 to get 10% off\' to appliedDiscounts of the order', () => {
+            order.list.orderItems.push(orderItem5);
+            let processedOrder = orderProcessor.processOrder(order);
+            expect(processedOrder.appliedDiscounts).to.contain('Spend over $30 to get 10% off');
+            expect(processedOrder.appliedDiscounts.filter(value => {return value === 'Spend over $30 to get 10% off'}).length).to.equal(1)
           });
         });
       });

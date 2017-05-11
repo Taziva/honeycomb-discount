@@ -17,12 +17,17 @@ export default class OrderPrinter {
 function formatOrderString(processedOrder) {
   let orderString = '';
   const materialNameString = `Order for ${processedOrder.material.clockNumber}:\n`;
-  const tableString = stringTable.create(processedOrder.list.orderItems)
-  const orderGrossTotalString = `\nOrder Gross Total: $${processedOrder.grossTotalCost.toFixed(2)}`
+  const tableString = stringTable.create(processedOrder.list.orderItems);
+  const orderGrossTotalString = `\nOrder Gross Total: $${processedOrder.grossTotalCost.toFixed(2)}\n`
+  let appliedDiscountsString = '';
+  if(processedOrder.appliedDiscounts.length > 0){
+    appliedDiscountsString = "Applied Discounts:\n- " + processedOrder.appliedDiscounts.join('\n- ');
+  }
   const orderNetTotalString = `\nOrder Net Total: $${processedOrder.netTotalCost.toFixed(2)}\n`
   orderString += materialNameString;
   orderString += tableString;
   orderString += orderGrossTotalString;
+  orderString += appliedDiscountsString;
   orderString += orderNetTotalString;
   return orderString;
 }
